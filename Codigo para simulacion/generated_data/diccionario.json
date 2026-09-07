@@ -1,0 +1,22 @@
+[
+  {
+    "campo": "monto_planificado",
+    "origen": "DERIVADO",
+    "definicion": "Cantidad anual multiplicada por costo unitario del PAC."
+  },
+  {
+    "campo": "objetivo_sintetico",
+    "origen": "SINTÉTICO",
+    "definicion": "Asignación académica por reglas de palabras clave y tipo de compra."
+  },
+  {
+    "campo": "fechas y estados simulados",
+    "origen": "SINTÉTICO",
+    "definicion": "Resultados reproducibles de simulación con semilla 2026."
+  },
+  {
+    "campo": "monto_adjudicado/ejecutado",
+    "origen": "SINTÉTICO",
+    "definicion": "Valores hipotéticos; no describen ejecución real del GAD."
+  }
+]

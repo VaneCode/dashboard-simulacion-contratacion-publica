@@ -1,0 +1,98 @@
+[
+  {
+    "id_poa": "POA-2026-01",
+    "objetivo_codigo": "OBJ-01",
+    "objetivo_sintetico": "Fortalecer la gestión administrativa e institucional",
+    "actividad_sintetica": "Gestión administrativa",
+    "indicador_sintetico": "Porcentaje de procesos vinculados con ejecución registrada",
+    "meta_sintetica_pct": 85,
+    "presupuesto_sintetico": 51345402.06,
+    "monto_pac_vinculado": 49849904.91,
+    "procesos_pac": 528,
+    "naturaleza": "SINTÉTICO — generado para fines académicos"
+  },
+  {
+    "id_poa": "POA-2026-02",
+    "objetivo_codigo": "OBJ-02",
+    "objetivo_sintetico": "Mejorar la infraestructura y el equipamiento urbano",
+    "actividad_sintetica": "Infraestructura y obras",
+    "indicador_sintetico": "Porcentaje de procesos vinculados con ejecución registrada",
+    "meta_sintetica_pct": 75,
+    "presupuesto_sintetico": 147706462.99,
+    "monto_pac_vinculado": 143404333.0,
+    "procesos_pac": 17,
+    "naturaleza": "SINTÉTICO — generado para fines académicos"
+  },
+  {
+    "id_poa": "POA-2026-03",
+    "objetivo_codigo": "OBJ-03",
+    "objetivo_sintetico": "Optimizar los servicios urbanos y la gestión ambiental",
+    "actividad_sintetica": "Servicios urbanos y ambiente",
+    "indicador_sintetico": "Porcentaje de procesos vinculados con ejecución registrada",
+    "meta_sintetica_pct": 85,
+    "presupuesto_sintetico": 20283835.8,
+    "monto_pac_vinculado": 19693044.47,
+    "procesos_pac": 45,
+    "naturaleza": "SINTÉTICO — generado para fines académicos"
+  },
+  {
+    "id_poa": "POA-2026-04",
+    "objetivo_codigo": "OBJ-04",
+    "objetivo_sintetico": "Impulsar la transformación digital y la comunicación pública",
+    "actividad_sintetica": "Tecnología y comunicación",
+    "indicador_sintetico": "Porcentaje de procesos vinculados con ejecución registrada",
+    "meta_sintetica_pct": 85,
+    "presupuesto_sintetico": 9350426.2,
+    "monto_pac_vinculado": 9078083.69,
+    "procesos_pac": 51,
+    "naturaleza": "SINTÉTICO — generado para fines académicos"
+  },
+  {
+    "id_poa": "POA-2026-05",
+    "objetivo_codigo": "OBJ-05",
+    "objetivo_sintetico": "Fortalecer la inclusión y el desarrollo comunitario",
+    "actividad_sintetica": "Desarrollo social y comunitario",
+    "indicador_sintetico": "Porcentaje de procesos vinculados con ejecución registrada",
+    "meta_sintetica_pct": 85,
+    "presupuesto_sintetico": 3508542.4,
+    "monto_pac_vinculado": 3406351.84,
+    "procesos_pac": 19,
+    "naturaleza": "SINTÉTICO — generado para fines académicos"
+  },
+  {
+    "id_poa": "POA-2026-06",
+    "objetivo_codigo": "OBJ-06",
+    "objetivo_sintetico": "Mejorar la movilidad y la seguridad vial",
+    "actividad_sintetica": "Movilidad y seguridad vial",
+    "indicador_sintetico": "Porcentaje de procesos vinculados con ejecución registrada",
+    "meta_sintetica_pct": 85,
+    "presupuesto_sintetico": 10975014.51,
+    "monto_pac_vinculado": 10655353.89,
+    "procesos_pac": 32,
+    "naturaleza": "SINTÉTICO — generado para fines académicos"
+  },
+  {
+    "id_poa": "POA-2026-07",
+    "objetivo_codigo": "OBJ-07",
+    "objetivo_sintetico": "Fortalecer la salud, higiene y control sanitario",
+    "actividad_sintetica": "Salud e higiene",
+    "indicador_sintetico": "Porcentaje de procesos vinculados con ejecución registrada",
+    "meta_sintetica_pct": 85,
+    "presupuesto_sintetico": 3179038.41,
+    "monto_pac_vinculado": 3086445.06,
+    "procesos_pac": 27,
+    "naturaleza": "SINTÉTICO — generado para fines académicos"
+  },
+  {
+    "id_poa": "POA-2026-08",
+    "objetivo_codigo": "OBJ-08",
+    "objetivo_sintetico": "Fortalecer la gestión financiera, jurídica y de planificación",
+    "actividad_sintetica": "Gestión financiera y jurídica",
+    "indicador_sintetico": "Porcentaje de procesos vinculados con ejecución registrada",
+    "meta_sintetica_pct": 85,
+    "presupuesto_sintetico": 6455081.77,
+    "monto_pac_vinculado": 6267069.68,
+    "procesos_pac": 17,
+    "naturaleza": "SINTÉTICO — generado para fines académicos"
+  }
+]

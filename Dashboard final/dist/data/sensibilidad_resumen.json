@@ -1,0 +1,47 @@
+[
+  {
+    "escenario": "Conservador",
+    "tasa_materializacion_pct_p05": 66.98,
+    "tasa_materializacion_pct_mediana": 68.89,
+    "tasa_materializacion_pct_p95": 71.47,
+    "tasa_finalizacion_pct_p05": 60.87,
+    "tasa_finalizacion_pct_mediana": 63.04,
+    "tasa_finalizacion_pct_p95": 65.62,
+    "ahorro_adjudicacion_pct_p05": 0.38,
+    "ahorro_adjudicacion_pct_mediana": 1.98,
+    "ahorro_adjudicacion_pct_p95": 3.4,
+    "mediana_dias_adjudicacion_p05": 41,
+    "mediana_dias_adjudicacion_mediana": 45.0,
+    "mediana_dias_adjudicacion_p95": 47
+  },
+  {
+    "escenario": "Base",
+    "tasa_materializacion_pct_p05": 78.94,
+    "tasa_materializacion_pct_mediana": 81.05,
+    "tasa_materializacion_pct_p95": 83.56,
+    "tasa_finalizacion_pct_p05": 73.37,
+    "tasa_finalizacion_pct_mediana": 75.95,
+    "tasa_finalizacion_pct_p95": 78.4,
+    "ahorro_adjudicacion_pct_p05": 0.57,
+    "ahorro_adjudicacion_pct_mediana": 1.86,
+    "ahorro_adjudicacion_pct_p95": 3.58,
+    "mediana_dias_adjudicacion_p05": 36,
+    "mediana_dias_adjudicacion_mediana": 38.0,
+    "mediana_dias_adjudicacion_p95": 39.0
+  },
+  {
+    "escenario": "Favorable",
+    "tasa_materializacion_pct_p05": 88.99,
+    "tasa_materializacion_pct_mediana": 90.62,
+    "tasa_materializacion_pct_p95": 92.26,
+    "tasa_finalizacion_pct_p05": 84.24,
+    "tasa_finalizacion_pct_mediana": 86.28,
+    "tasa_finalizacion_pct_p95": 88.18,
+    "ahorro_adjudicacion_pct_p05": 0.69,
+    "ahorro_adjudicacion_pct_mediana": 2.18,
+    "ahorro_adjudicacion_pct_p95": 3.42,
+    "mediana_dias_adjudicacion_p05": 31,
+    "mediana_dias_adjudicacion_mediana": 33.0,
+    "mediana_dias_adjudicacion_p95": 34.0
+  }
+]

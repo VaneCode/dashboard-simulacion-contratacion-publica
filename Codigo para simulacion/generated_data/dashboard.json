@@ -1,0 +1,98 @@
+{
+  "fuente": "PAC 2026 Guayaquil",
+  "ruc": "0960000220001",
+  "registros_pac": 736,
+  "monto_planificado": 245440586.54,
+  "objetivos_poa": 8,
+  "metricas_base": {
+    "registros": 736,
+    "tasa_materializacion_pct": 79.89,
+    "tasa_finalizacion_pct": 74.32,
+    "desiertos_cancelados": 148,
+    "monto_planificado": 245440586.54,
+    "monto_adjudicado": 167692250.77,
+    "monto_ejecutado": 164986636.68,
+    "ahorro_adjudicacion_pct": 1.07,
+    "mediana_dias_adjudicacion": 38.0
+  },
+  "conteos": {
+    "tipo_compra": {
+      "BIEN": 435,
+      "SERVICIO": 246,
+      "CONSULTORIA": 38,
+      "OBRAS": 17
+    },
+    "procedimiento": {
+      "SUBASTA INVERSA ELECTRONICA": 259,
+      "CATALOGO ELECTRONICO": 64,
+      "INFIMA CUANTIA": 247,
+      "COMUNICACION SOCIAL CONTRATACION DIRECTA": 23,
+      "LICITACION": 96,
+      "CONCURSO PUBLICO": 37,
+      "ARRENDAMIENTO DE BIENES INMUEBLES": 1,
+      "BIENES Y SERVICIOS UNICOS": 6,
+      "CONTRATOS ENTRE ENTIDADES PUBLICAS O SUBSIDIARIAS": 3
+    },
+    "cuatrimestre": {
+      "3": 62,
+      "2": 265,
+      "1": 409
+    },
+    "estado_base": {
+      "EN EJECUCION": 21,
+      "PLANIFICADO": 4,
+      "FINALIZADO": 547,
+      "DESIERTO": 112,
+      "PUBLICADO": 11,
+      "CANCELADO": 36,
+      "ADJUDICADO": 5
+    }
+  },
+  "sensibilidad_resumen": [
+    {
+      "escenario": "Conservador",
+      "tasa_materializacion_pct_p05": 66.98,
+      "tasa_materializacion_pct_mediana": 68.89,
+      "tasa_materializacion_pct_p95": 71.47,
+      "tasa_finalizacion_pct_p05": 60.87,
+      "tasa_finalizacion_pct_mediana": 63.04,
+      "tasa_finalizacion_pct_p95": 65.62,
+      "ahorro_adjudicacion_pct_p05": 0.38,
+      "ahorro_adjudicacion_pct_mediana": 1.98,
+      "ahorro_adjudicacion_pct_p95": 3.4,
+      "mediana_dias_adjudicacion_p05": 41,
+      "mediana_dias_adjudicacion_mediana": 45.0,
+      "mediana_dias_adjudicacion_p95": 47
+    },
+    {
+      "escenario": "Base",
+      "tasa_materializacion_pct_p05": 78.94,
+      "tasa_materializacion_pct_mediana": 81.05,
+      "tasa_materializacion_pct_p95": 83.56,
+      "tasa_finalizacion_pct_p05": 73.37,
+      "tasa_finalizacion_pct_mediana": 75.95,
+      "tasa_finalizacion_pct_p95": 78.4,
+      "ahorro_adjudicacion_pct_p05": 0.57,
+      "ahorro_adjudicacion_pct_mediana": 1.86,
+      "ahorro_adjudicacion_pct_p95": 3.58,
+      "mediana_dias_adjudicacion_p05": 36,
+      "mediana_dias_adjudicacion_mediana": 38.0,
+      "mediana_dias_adjudicacion_p95": 39.0
+    },
+    {
+      "escenario": "Favorable",
+      "tasa_materializacion_pct_p05": 88.99,
+      "tasa_materializacion_pct_mediana": 90.62,
+      "tasa_materializacion_pct_p95": 92.26,
+      "tasa_finalizacion_pct_p05": 84.24,
+      "tasa_finalizacion_pct_mediana": 86.28,
+      "tasa_finalizacion_pct_p95": 88.18,
+      "ahorro_adjudicacion_pct_p05": 0.69,
+      "ahorro_adjudicacion_pct_mediana": 2.18,
+      "ahorro_adjudicacion_pct_p95": 3.42,
+      "mediana_dias_adjudicacion_p05": 31,
+      "mediana_dias_adjudicacion_mediana": 33.0,
+      "mediana_dias_adjudicacion_p95": 34.0
+    }
+  ]
+}

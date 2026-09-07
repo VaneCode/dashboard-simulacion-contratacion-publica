@@ -1,0 +1,52 @@
+[
+  {
+    "procedimiento": "CATALOGO ELECTRONICO",
+    "probabilidad_base": 0.92,
+    "duracion_referencia_dias": 30
+  },
+  {
+    "procedimiento": "INFIMA CUANTIA",
+    "probabilidad_base": 0.88,
+    "duracion_referencia_dias": 25
+  },
+  {
+    "procedimiento": "SUBASTA INVERSA ELECTRONICA",
+    "probabilidad_base": 0.78,
+    "duracion_referencia_dias": 80
+  },
+  {
+    "procedimiento": "LICITACION",
+    "probabilidad_base": 0.7,
+    "duracion_referencia_dias": 135
+  },
+  {
+    "procedimiento": "CONCURSO PUBLICO",
+    "probabilidad_base": 0.68,
+    "duracion_referencia_dias": 120
+  },
+  {
+    "procedimiento": "COMUNICACION SOCIAL CONTRATACION DIRECTA",
+    "probabilidad_base": 0.8,
+    "duracion_referencia_dias": 65
+  },
+  {
+    "procedimiento": "BIENES Y SERVICIOS UNICOS",
+    "probabilidad_base": 0.82,
+    "duracion_referencia_dias": 60
+  },
+  {
+    "procedimiento": "CONTRATOS ENTRE ENTIDADES PUBLICAS O SUBSIDIARIAS",
+    "probabilidad_base": 0.85,
+    "duracion_referencia_dias": 55
+  },
+  {
+    "procedimiento": "ARRENDAMIENTO DE BIENES INMUEBLES",
+    "probabilidad_base": 0.9,
+    "duracion_referencia_dias": 45
+  },
+  {
+    "procedimiento": "NO INFORMADO",
+    "probabilidad_base": 0.72,
+    "duracion_referencia_dias": 90
+  }
+]

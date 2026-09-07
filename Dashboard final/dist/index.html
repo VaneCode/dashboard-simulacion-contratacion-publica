@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Dashboard académico del modelo integrado PAC–POA 2026.">
+  <title>Dashboard PAC–POA 2026</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="charts.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <p class="eyebrow">VISUAL ANALYTICS · ECUADOR</p>
+      <h1>Modelo integrado PAC–POA 2026</h1>
+      <p class="subtitle">Planificación contractual, objetivos operativos y ciclo simulado</p>
+    </div>
+    <div class="source-badge"><span></span>PAC observado · simulación reproducible</div>
+  </header>
+
+  <main>
+    <section class="notice" aria-label="Advertencia metodológica">
+      <strong>Advertencia metodológica</strong>
+      <p>El PAC es la fuente observada. Los objetivos POA, fechas, estados y montos de adjudicación y ejecución son sintéticos; no representan el desempeño real del GAD Municipal de Guayaquil.</p>
+    </section>
+
+    <section class="filters" aria-label="Filtros del dashboard">
+      <div class="filter-title"><span>Filtros</span><button id="resetFilters" type="button">Restablecer</button></div>
+      <label>Tipo de compra<select id="filterType"><option value="">Todos</option></select></label>
+      <label>Procedimiento<select id="filterProcedure"><option value="">Todos</option></select></label>
+      <label>Cuatrimestre<select id="filterQuarter"><option value="">Todos</option></select></label>
+      <label>Estado simulado<select id="filterStatus"><option value="">Todos</option></select></label>
+    </section>
+
+    <section class="kpis" aria-label="Indicadores principales">
+      <article><span>Registros PAC</span><strong id="kpiRecords">—</strong><small>filas observadas</small></article>
+      <article><span>Monto planificado</span><strong id="kpiPlanned">—</strong><small>valor derivado</small></article>
+      <article class="accent"><span>Materialización</span><strong id="kpiMaterialization">—</strong><small>resultado sintético</small></article>
+      <article class="accent"><span>Finalización</span><strong id="kpiCompletion">—</strong><small>resultado sintético</small></article>
+      <article><span>Mediana adjudicación</span><strong id="kpiDays">—</strong><small>días simulados</small></article>
+    </section>
+
+    <section class="grid charts">
+      <article class="panel wide">
+        <div class="panel-head"><div><p class="overline">COMPOSICIÓN</p><h2>Registros por tipo de compra</h2></div><span id="typeTotal"></span></div>
+        <div class="chart-box bar-chart" id="typeChart"></div>
+      </article>
+      <article class="panel">
+        <div class="panel-head"><div><p class="overline">CICLO CONTRACTUAL</p><h2>Estados simulados</h2></div></div>
+        <div class="chart-box status-chart" id="statusChart"></div>
+      </article>
+      <article class="panel full">
+        <div class="panel-head"><div><p class="overline">SENSIBILIDAD · 100 CORRIDAS</p><h2>Comparación de escenarios</h2></div><span>Mediana e intervalo p05–p95</span></div>
+        <div class="scenario-grid" id="scenarioCards"></div>
+      </article>
+    </section>
+
+    <section class="panel table-panel">
+      <div class="panel-head">
+        <div><p class="overline">TRAZABILIDAD</p><h2>Detalle de registros</h2></div>
+        <label class="search">Buscar<input id="searchInput" type="search" placeholder="Descripción, CPC o ID PAC"></label>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>ID PAC</th><th>Tipo</th><th>Detalle</th><th>Procedimiento</th><th>Cuatr.</th><th>Monto planificado</th><th>Estado</th></tr></thead>
+          <tbody id="dataTable"></tbody>
+        </table>
+      </div>
+      <div class="pagination"><span id="tableInfo"></span><div><button id="prevPage" type="button">Anterior</button><button id="nextPage" type="button">Siguiente</button></div></div>
+    </section>
+  </main>
+  <footer>Fuente observada: PAC 2026 · Modelo académico con semilla 2026</footer>
+</body>
+</html>

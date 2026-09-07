@@ -1,0 +1,31 @@
+const state={pac:[],cycle:[],sensitivity:[],page:1,pageSize:12};
+const $=id=>document.getElementById(id);
+const money=new Intl.NumberFormat('es-EC',{style:'currency',currency:'USD',maximumFractionDigits:0});
+const number=new Intl.NumberFormat('es-EC');
+const percent=v=>`${v.toFixed(2).replace('.',',')} %`;
+
+async function boot(){
+  try{
+    const [pac,cycle,sensitivity]=await Promise.all(['pac_limpio','ciclo_sintetico','sensibilidad_resumen'].map(n=>fetch(`data/${n}.json`).then(r=>{if(!r.ok)throw new Error(n);return r.json()})));
+    state.pac=pac;state.cycle=cycle;state.sensitivity=sensitivity;
+    populateFilters();bindEvents();render();renderScenarios();
+  }catch(error){document.querySelector('main').innerHTML=`<section class="notice"><strong>No se pudieron cargar los datos.</strong><p>Verifique que la carpeta data se encuentre junto al dashboard.</p></section>`;}
+}
+function unique(field){return [...new Set(state.pac.map(x=>x[field]).filter(Boolean))].sort((a,b)=>String(a).localeCompare(String(b),'es'));}
+function addOptions(id,values){const s=$(id);values.forEach(v=>s.add(new Option(v,v)));}
+function populateFilters(){addOptions('filterType',unique('tipo_compra'));addOptions('filterProcedure',unique('procedimiento'));addOptions('filterQuarter',[1,2,3]);addOptions('filterStatus',[...new Set(state.cycle.map(x=>x.estado_simulado))].sort());}
+function bindEvents(){['filterType','filterProcedure','filterQuarter','filterStatus'].forEach(id=>$(id).addEventListener('change',()=>{state.page=1;render()}));$('searchInput').addEventListener('input',()=>{state.page=1;renderTable(filtered())});$('resetFilters').addEventListener('click',()=>{['filterType','filterProcedure','filterQuarter','filterStatus'].forEach(id=>$(id).value='');$('searchInput').value='';state.page=1;render()});$('prevPage').addEventListener('click',()=>{state.page--;renderTable(filtered())});$('nextPage').addEventListener('click',()=>{state.page++;renderTable(filtered())});}
+function filtered(){const type=$('filterType').value,procedure=$('filterProcedure').value,quarter=$('filterQuarter').value,status=$('filterStatus').value;const cycleByPac=new Map(state.cycle.map(x=>[x.id_pac,x]));return state.pac.filter(x=>(!type||x.tipo_compra===type)&&(!procedure||x.procedimiento===procedure)&&(!quarter||String(x.cuatrimestre)===quarter)&&(!status||cycleByPac.get(x.id_pac)?.estado_simulado===status)).map(x=>({...x,cycle:cycleByPac.get(x.id_pac)}));}
+function render(){const rows=filtered();renderKpis(rows);renderCharts(rows);renderTable(rows);}
+function renderKpis(rows){const success=rows.filter(x=>x.cycle?.monto_adjudicado_sintetico>0),finished=rows.filter(x=>x.cycle?.estado_simulado==='FINALIZADO'),days=success.map(x=>x.cycle.dias_plan_adjudicacion).filter(Number.isFinite).sort((a,b)=>a-b);const median=days.length?(days[Math.floor((days.length-1)/2)]+days[Math.ceil((days.length-1)/2)])/2:0;$('kpiRecords').textContent=number.format(rows.length);$('kpiPlanned').textContent=money.format(rows.reduce((s,x)=>s+x.monto_planificado,0));$('kpiMaterialization').textContent=rows.length?percent(success.length*100/rows.length):'—';$('kpiCompletion').textContent=rows.length?percent(finished.length*100/rows.length):'—';$('kpiDays').textContent=days.length?number.format(median):'—';$('typeTotal').textContent=`${number.format(rows.length)} registros filtrados`;}
+function counts(rows,key){return rows.reduce((a,x)=>{const k=key(x);a[k]=(a[k]||0)+1;return a},{});}
+function renderCharts(rows){
+  const type=counts(rows,x=>x.tipo_compra),maxType=Math.max(1,...Object.values(type));
+  $('typeChart').innerHTML=Object.entries(type).map(([label,value])=>`<div class="bar-item" title="${label}: ${value}"><span class="bar-value">${number.format(value)}</span><i class="bar-column" style="height:${Math.max(3,value*210/maxType)}px"></i><span class="bar-label">${label}</span></div>`).join('')||'<p>Sin datos</p>';
+  const status=counts(rows,x=>x.cycle?.estado_simulado||'SIN ESTADO'),maxStatus=Math.max(1,...Object.values(status));
+  const colors=['#24a179','#f0a43a','#db5364','#7f8ca6','#1677ff','#6d79d8','#00a9c7'];
+  $('statusChart').innerHTML=Object.entries(status).sort((a,b)=>b[1]-a[1]).map(([label,value],i)=>`<div class="status-row"><span title="${label}">${label}</span><span class="status-track"><i style="width:${value*100/maxStatus}%;background:${colors[i%colors.length]}"></i></span><b>${number.format(value)}</b></div>`).join('')||'<p>Sin datos</p>';
+}
+function renderScenarios(){$('scenarioCards').innerHTML=state.sensitivity.map(x=>`<article class="scenario-card ${x.escenario==='Base'?'base':''}"><div class="name">${x.escenario}</div><div class="metric"><span>Materialización</span><strong>${percent(x.tasa_materializacion_pct_mediana)}</strong></div><div class="range">p05 ${percent(x.tasa_materializacion_pct_p05)} · p95 ${percent(x.tasa_materializacion_pct_p95)}</div><div class="bar"><i style="width:${x.tasa_materializacion_pct_mediana}%"></i></div><div class="metric"><span>Finalización</span><b>${percent(x.tasa_finalizacion_pct_mediana)}</b></div><div class="range">Mediana: ${x.mediana_dias_adjudicacion_mediana} días hasta adjudicación</div></article>`).join('');}
+function renderTable(rows){const q=$('searchInput').value.trim().toLowerCase();const found=q?rows.filter(x=>[x.id_pac,x.cpc,x.detalle].some(v=>String(v).toLowerCase().includes(q))):rows;const pages=Math.max(1,Math.ceil(found.length/state.pageSize));state.page=Math.min(state.page,pages);const slice=found.slice((state.page-1)*state.pageSize,state.page*state.pageSize);$('dataTable').innerHTML=slice.map(x=>`<tr><td>${x.id_pac}</td><td>${x.tipo_compra}</td><td>${x.detalle}</td><td>${x.procedimiento}</td><td>${x.cuatrimestre}</td><td class="money">${money.format(x.monto_planificado)}</td><td><span class="status ${(x.cycle?.estado_simulado||'').toLowerCase().replace(' ','-')}">${x.cycle?.estado_simulado||'—'}</span></td></tr>`).join('')||'<tr><td colspan="7">No existen registros para los filtros seleccionados.</td></tr>';$('tableInfo').textContent=`${number.format(found.length)} resultados · página ${state.page} de ${pages}`;$('prevPage').disabled=state.page<=1;$('nextPage').disabled=state.page>=pages;}
+boot();
